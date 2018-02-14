@@ -8,8 +8,8 @@ import { HeaderService } from '../headerService';
 })
 export class NavbarComponentComponent implements OnInit {
 
-  liComponents: MenuItem[] = [new MenuItem("Home", "home", true),
-  new MenuItem("List", "list", false),
+  liComponents: MenuItem[] = [new MenuItem("Home", "Home", true),
+  new MenuItem("List", "List", false),
   new MenuItem("Edit", "Edit", false)];
 
   constructor(private headerService: HeaderService) {

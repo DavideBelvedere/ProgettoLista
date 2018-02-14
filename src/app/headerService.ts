@@ -7,7 +7,6 @@ export class HeaderService {
     public menuSelected$ = this.menuSelected.asObservable();
     
     public setSelection(id: string) {
-        alert(id);
         this.menuSelected.next(id);
     }
 }
