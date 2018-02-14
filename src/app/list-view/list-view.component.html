@@ -1,3 +1,11 @@
 <div class="list-bg">
+    <div *ngFor="let game of games">
+        <div class="box-game">
+            <div [ngStyle]="{'background-image': 'url('+ game.imgUrl +')'}">
 
+            </div>
+            <p>{{game.title}} Prezzo: {{game.price}}</p>
+        </div>
+
+    </div>
 </div>

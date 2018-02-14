@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ListVideogame } from '../listVideogame';
+import { VideoGamePreview } from '../videogamePreview';
+
 
 @Component({
   selector: 'list',
@@ -6,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-view.component.css']
 })
 export class ListViewComponent implements OnInit {
-
-  constructor() { }
+  games: VideoGamePreview[] =[];
+  constructor(private list: ListVideogame) { 
+    this.games=list.getVideogameList();
+  }
 
   ngOnInit() {
   }

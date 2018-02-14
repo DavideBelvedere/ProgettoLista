@@ -8,6 +8,7 @@ import { HomeViewComponent } from './home-view/home-view.component';
 import { ListViewComponent } from './list-view/list-view.component';
 import { EditViewComponent } from './edit-view/edit-view.component';
 import { HeaderService } from './headerService';
+import { ListVideogame } from './listVideogame';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { HeaderService } from './headerService';
   imports: [
     BrowserModule
   ],
-  providers: [HeaderService],
+  providers: [HeaderService,ListVideogame],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
