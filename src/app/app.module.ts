@@ -4,17 +4,24 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NavbarComponentComponent } from './navbar-component/navbar-component.component';
+import { HomeViewComponent } from './home-view/home-view.component';
+import { ListViewComponent } from './list-view/list-view.component';
+import { EditViewComponent } from './edit-view/edit-view.component';
+import { HeaderService } from './headerService';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponentComponent
+    NavbarComponentComponent,
+    HomeViewComponent,
+    ListViewComponent,
+    EditViewComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [HeaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,9 +1,9 @@
 <div class="navbar">
     <nav>
         <ul>
-            <li>Home</li>
-            <li>Lista</li>
-            <li>Modifica</li>
+            <li *ngFor="let li of liComponents" (click)="selectSection(li.id)" [class.active]="li.selected">
+                {{li.value}}
+            </li>
         </ul>
     </nav>
 </div>

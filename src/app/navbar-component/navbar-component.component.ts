@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MenuItem } from '../menuItem';
+import { HeaderService } from '../headerService';
 @Component({
   selector: 'navbar',
   templateUrl: './navbar-component.component.html',
@@ -7,11 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponentComponent implements OnInit {
 
-  constructor() { }
+  liComponents: MenuItem[] = [new MenuItem("Home", "home", true),
+  new MenuItem("List", "list", false),
+  new MenuItem("Edit", "Edit", false)];
+
+  constructor(private headerService: HeaderService) {
+
+
+  }
 
   ngOnInit() {
   }
 
+  selectSection(id: string) {
+
+    this.liComponents.forEach(item => {
+      if (id == item.id) {
+        item.selected = true;
+      } else {
+        item.selected = false;
+      }
+    });
+
+    this.headerService.setSelection(id);
+  }
 }
 
 
