@@ -18,6 +18,14 @@ export class VideoGame {
 		this.rating = $rating;
 		this.anno = $anno;
 	}
+
+	public get $id(): string {
+		return this.id;
+	}
+
+	public set $id(value: string) {
+		this.id = value;
+	}
   
 
 

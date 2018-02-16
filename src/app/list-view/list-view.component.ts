@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ListVideogame } from '../listVideogame';
 import { VideoGame } from '../videogame';
 import { HeaderService } from '../headerService';
@@ -10,16 +10,18 @@ import { HeaderService } from '../headerService';
   styleUrls: ['./list-view.component.css']
 })
 export class ListViewComponent implements OnInit {
-  games: VideoGame[] =[];
-  constructor(private list: ListVideogame, private headerService:HeaderService) { 
-    this.games=list.getVideogameList();
+  games: VideoGame[] = [];
+   id: string;
+  constructor(private listVideogame: ListVideogame) {
+    this.games = listVideogame.getVideogameList();
   }
 
   ngOnInit() {
   }
 
-  selectSection(){
-    this.headerService.setSelection("Game-Detail");
+  selectSection(id: string) {
+    
+    this.id = id;
   }
 
 }

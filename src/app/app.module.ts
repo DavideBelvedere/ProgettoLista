@@ -10,7 +10,7 @@ import { EditViewComponent } from './edit-view/edit-view.component';
 import { HeaderService } from './headerService';
 import { ListVideogame } from './listVideogame';
 import { GameDetailComponent } from './game-detail/game-detail.component';
-import { DetailService } from './detailService';
+
 
 
 @NgModule({
@@ -25,7 +25,7 @@ import { DetailService } from './detailService';
   imports: [
     BrowserModule
   ],
-  providers: [HeaderService,ListVideogame,DetailService],
+  providers: [HeaderService,ListVideogame],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

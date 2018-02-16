@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { VideoGame } from '../videogame';
+import { ListVideogame } from '../listVideogame';
 
 @Component({
   selector: 'game-detail',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameDetailComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private listVideogameService: ListVideogame) { }
+  game: VideoGame;
+  @Input("idSelected") id: string;
   ngOnInit() {
+    this.game = this.listVideogameService.getGameById(this.id);
   }
 
 }
