@@ -10,6 +10,7 @@ import { EditViewComponent } from './edit-view/edit-view.component';
 import { HeaderService } from './headerService';
 import { ListVideogame } from './listVideogame';
 import { GameDetailComponent } from './game-detail/game-detail.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -23,7 +24,8 @@ import { GameDetailComponent } from './game-detail/game-detail.component';
     GameDetailComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [HeaderService,ListVideogame],
   bootstrap: [AppComponent]

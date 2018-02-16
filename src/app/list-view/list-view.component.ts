@@ -20,7 +20,6 @@ export class ListViewComponent implements OnInit {
   }
 
   selectSection(id: string) {
-    
     this.id = id;
   }
 

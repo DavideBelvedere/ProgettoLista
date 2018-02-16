@@ -10,23 +10,25 @@ import { ListViewComponent } from './list-view/list-view.component';
 })
 export class AppComponent {
   currentSection = "Home";
-  id="";
+  id = "";
   @ViewChild(ListViewComponent) viewChild: ListViewComponent;
-  constructor(private headerService: HeaderService ) {
-    this.headerService.menuSelected$.subscribe((id:string)=>{//chiama una funzione al subscribe che ha in ingresso il parametro id
+  constructor(private headerService: HeaderService) {
+    this.headerService.menuSelected$.subscribe((id: string) => {//chiama una funzione al subscribe che ha in ingresso il parametro id
       this.currentSection = id;
     });
 
-    
+
   }
-  ngAfterViewChecked(){
-    
-    if(this.viewChild && this.viewChild.id && this.id!=this.viewChild.id){
-      this.id=this.viewChild.id;
+  ngAfterViewChecked() {
+
+    if (this.viewChild && this.viewChild.id && this.id != this.viewChild.id) {
+      this.id = this.viewChild.id;
       let this_ = this;
-      setTimeout(function(){
+      //devo rendere asincrona la funzione e setto una variabile this_ in modo 
+      //che prenda quella di afterviewchecked e non quella di timeout
+      setTimeout(function () {
         this_.headerService.setSelection("Game-Detail");
-      
+
       }, 0);
     }
   }

@@ -26,7 +26,47 @@ export class VideoGame {
 	public set $id(value: string) {
 		this.id = value;
 	}
+
+	public get $title(): string {
+		return this.title;
+	}
+
+	public set $title(value: string) {
+		this.title = value;
+	}
   
+
+	public get $price(): number {
+		return this.price;
+	}
+
+	public set $price(value: number) {
+		this.price = value;
+	}
+
+	public get $anno(): number {
+		return this.anno;
+	}
+
+	public set $anno(value: number) {
+		this.anno = value;
+	}
+
+	public get $rating(): number {
+		return this.rating;
+	}
+
+	public set $rating(value: number) {
+		this.rating = value;
+	}
+
+	public get $genere(): string {
+		return this.genere;
+	}
+
+	public set $genere(value: string) {
+		this.genere = value;
+	}
 
 
 

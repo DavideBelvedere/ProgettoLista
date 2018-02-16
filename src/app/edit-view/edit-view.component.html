@@ -1,1 +1,17 @@
-<h1>edit</h1>
+<div>
+    <input type="text" placeholder="cerca" [(ngModel)]="inputValue" />
+    <button (click)="search()">Cerca</button>
+    <div *ngIf="trovato">
+        ID: {{currentGame?.id}}<br>
+        <input placeholder="titolo" [(ngModel)]="currentGame.title" />
+        <input placeholder="genere" [(ngModel)]="currentGame.genere" />
+        <input placeholder="prezzo" type="number" [(ngModel)]="currentGame.price" />
+        <input type="number" placeholder="valutazione" [(ngModel)]="currentGame.rating" />
+        <input type="number" placeholder="anno" [(ngModel)]="currentGame.anno" />
+        <button (click)="edit()">Modifica</button>
+    </div>
+    <div *ngIf="errore">
+        Non esiste il titolo da te inserito
+    </div>
+
+</div>
