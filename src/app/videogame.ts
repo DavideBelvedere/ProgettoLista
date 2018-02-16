@@ -1,4 +1,4 @@
-export class VideoGamePreview {
+export class VideoGame {
     private imgUrl: string;
     private title: string;
     private price: number;
