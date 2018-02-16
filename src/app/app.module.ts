@@ -9,6 +9,8 @@ import { ListViewComponent } from './list-view/list-view.component';
 import { EditViewComponent } from './edit-view/edit-view.component';
 import { HeaderService } from './headerService';
 import { ListVideogame } from './listVideogame';
+import { GameDetailComponent } from './game-detail/game-detail.component';
+import { DetailService } from './detailService';
 
 
 @NgModule({
@@ -17,12 +19,13 @@ import { ListVideogame } from './listVideogame';
     NavbarComponentComponent,
     HomeViewComponent,
     ListViewComponent,
-    EditViewComponent
+    EditViewComponent,
+    GameDetailComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [HeaderService,ListVideogame],
+  providers: [HeaderService,ListVideogame,DetailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
