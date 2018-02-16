@@ -1,0 +1,8 @@
+<nav>
+  <a class="logo">
+    Steam
+  </a>
+  <div  *ngFor="let item of items; let i=index" class="menu" (click)="selectSection(item.id)" [class.selected]="item.selected">
+      <a>{{item.id}}</a>
+  </div>
+</nav>
