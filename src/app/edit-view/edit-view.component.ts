@@ -23,19 +23,19 @@ export class EditViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    alert(this.callFromEdit);
-    if(this.callFromEdit){
+
+    if (this.callFromEdit) {
       this.searchById();
-    }else{
-      this.inputValue="";
-      this.trovato=false;
+    } else {
+      this.inputValue = "";
+      this.trovato = false;
     }
-   
+
   }
-ngOnDestroy(){
-  this.callFromEdit=false;
-  alert(this.callFromEdit);
-}
+  ngOnDestroy() {
+    this.callFromEdit = false;
+  }
+
   search() {
 
     if (this.inputValue && this.inputValue != "") {
@@ -60,9 +60,10 @@ ngOnDestroy(){
 
     for (let game of this.games) {
       if (game.$id === this.id) {
-        this.inputValue=game.$title;
+        this.inputValue = game.$title;
         this.trovato = true;
         this.currentGame = game;
+   
         this.errore = false;
         break;
       }
@@ -75,5 +76,5 @@ ngOnDestroy(){
     this.listGames.editData(this.currentGame);
   }
 
-  
+
 }
