@@ -5,5 +5,5 @@
     <home *ngSwitchCase="'Home'"></home>
     <list *ngSwitchCase="'List'"></list>
     <game-detail *ngSwitchCase="'Game-Detail'" [idSelected]="id"></game-detail>
-    <edit *ngSwitchCase="'Edit'"></edit>
+    <edit [passedId]="id" [isCalled]="callFromEdit" *ngSwitchCase="'Edit'"></edit>
 </div>
