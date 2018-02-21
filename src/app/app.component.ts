@@ -21,7 +21,7 @@ export class AppComponent {
   }
   getId(id: string) {
     this.id = id;
-    this.currentSection="Game-Detail";
+    this.headerService.setSelection("Game-Detail");
   }
   
 }
