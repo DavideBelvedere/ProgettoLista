@@ -11,7 +11,7 @@ import { DetailToEditService } from '../detail-to-edit.service';
 })
 export class GameDetailComponent implements OnInit {
 
-  constructor(private listVideogameService: ListVideogame, private detailToEdit: DetailToEditService) { }
+  constructor(private listVideogameService: ListVideogame, private headerService:HeaderService, private detailToEdit: DetailToEditService) { }
   game: VideoGame;
 
   @Input("idSelected") id: string;
@@ -23,6 +23,10 @@ export class GameDetailComponent implements OnInit {
   goEditComponent() {
     this.detailToEdit.goToEdit(this.game.$id);
   }
+
+backListComponent(){
+  this.headerService.setSelection('List');
+}
 
   ngOnDestroy() {
     this.id = "";
