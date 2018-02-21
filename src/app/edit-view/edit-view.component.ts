@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { VideoGame } from '../videogame';
 import { ListVideogame } from '../listVideogame';
 import { FormsModule } from '@angular/forms';
+import { DetailToEditService } from '../detail-to-edit.service';
 
 @Component({
   selector: 'edit',
@@ -11,30 +12,25 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class EditViewComponent implements OnInit {
-  @Input("passedId") id: string;
-  @Input("isCalled") callFromEdit: boolean;
+
   games: VideoGame[] = [];
   inputValue: string = "";
   trovato: boolean = false;
   currentGame: VideoGame;
+  currentId: string
   errore: boolean = false;
-  constructor(private listGames: ListVideogame) {
+  constructor(private listGames: ListVideogame, private detailToEdit: DetailToEditService) {
     this.games = listGames.getVideogameList();
   }
 
   ngOnInit() {
-
-    if (this.callFromEdit) {
+    if (this.detailToEdit.getCallFromEdit()) {
+      this.currentId = this.detailToEdit.getId();
       this.searchById();
-    } else {
-      this.inputValue = "";
-      this.trovato = false;
     }
 
   }
-  ngOnDestroy() {
-    this.callFromEdit = false;
-  }
+
 
   search() {
 
@@ -59,11 +55,11 @@ export class EditViewComponent implements OnInit {
   searchById() {
 
     for (let game of this.games) {
-      if (game.$id === this.id) {
+      if (game.$id === this.currentId) {
         this.inputValue = game.$title;
         this.trovato = true;
         this.currentGame = game;
-   
+
         this.errore = false;
         break;
       }
@@ -71,7 +67,9 @@ export class EditViewComponent implements OnInit {
 
     }
   }
-
+  ngOnDestroy() {
+    this.detailToEdit.setCallFromEdit(false);
+  }
   edit() {
     this.listGames.editData(this.currentGame);
   }

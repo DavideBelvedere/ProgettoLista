@@ -11,6 +11,7 @@ import { HeaderService } from './headerService';
 import { ListVideogame } from './listVideogame';
 import { GameDetailComponent } from './game-detail/game-detail.component';
 import { FormsModule } from '@angular/forms';
+import { DetailToEditService } from './detail-to-edit.service';
 
 
 
@@ -27,7 +28,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     FormsModule
   ],
-  providers: [HeaderService,ListVideogame],
+  providers: [HeaderService,ListVideogame,DetailToEditService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

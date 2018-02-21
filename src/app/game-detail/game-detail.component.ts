@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { VideoGame } from '../videogame';
 import { ListVideogame } from '../listVideogame';
 import { HeaderService } from '../headerService';
+import { DetailToEditService } from '../detail-to-edit.service';
 
 @Component({
   selector: 'game-detail',
@@ -10,23 +11,19 @@ import { HeaderService } from '../headerService';
 })
 export class GameDetailComponent implements OnInit {
 
-  constructor(private listVideogameService: ListVideogame, private headerService: HeaderService) { }
+  constructor(private listVideogameService: ListVideogame, private detailToEdit: DetailToEditService) { }
   game: VideoGame;
-  calledFromEdit: boolean = false;
+
   @Input("idSelected") id: string;
+  
   ngOnInit() {
     this.game = this.listVideogameService.getGameById(this.id);
   }
-  goEditComponent() {
-    this.calledFromEdit = true;
-    let this_ = this;
-    setTimeout(function () {
-      this_.headerService.setSelection("Edit");
-    }, 0);
-    
-    
 
+  goEditComponent() {
+    this.detailToEdit.goToEdit(this.game.$id);
   }
+
   ngOnDestroy() {
     this.id = "";
     this.game=null;
