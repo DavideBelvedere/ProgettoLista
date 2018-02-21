@@ -4,6 +4,6 @@
 <div [ngSwitch]="currentSection" class="main-content">
     <home *ngSwitchCase="'Home'"></home>
     <list *ngSwitchCase="'List'"></list>
-    <game-detail *ngSwitchCase="'Game-Detail'" [idSelected]="id"></game-detail>
-    <edit [passedId]="id" [isCalled]="callFromEdit" *ngSwitchCase="'Edit'"></edit>
+    <game-detail *ngSwitchCase="'Game-Detail'" (selectedId)="getId($event)" [idSelected]="id"></game-detail>
+    <edit *ngSwitchCase="'Edit'"></edit>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ListVideogame } from '../listVideogame';
 import { VideoGame } from '../videogame';
 import { HeaderService } from '../headerService';
@@ -11,7 +11,9 @@ import { HeaderService } from '../headerService';
 })
 export class ListViewComponent implements OnInit {
   games: VideoGame[] = [];
-   id: string;
+
+  @Output()
+  selectedId: EventEmitter<String> = new EventEmitter<String>();
   constructor(private listVideogame: ListVideogame) {
     this.games = listVideogame.getVideogameList();
   }
@@ -19,8 +21,8 @@ export class ListViewComponent implements OnInit {
   ngOnInit() {
   }
 
-  selectSection(id: string) {
-    this.id = id;
+  selectGame(id: string) {
+    this.selectedId.emit(id);
   }
 
 }

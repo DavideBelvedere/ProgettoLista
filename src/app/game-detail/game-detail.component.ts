@@ -29,5 +29,6 @@ export class GameDetailComponent implements OnInit {
   }
   ngOnDestroy() {
     this.id = "";
+    this.game=null;
   }
 }
