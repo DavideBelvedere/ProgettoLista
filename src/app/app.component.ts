@@ -13,12 +13,14 @@ export class AppComponent {
   currentSection = "Home";
   id = "";
   callFromEdit = false;//per vedere se l'edit è stato richiamato dal dettaglio
+
   constructor(private headerService: HeaderService) {
     this.headerService.menuSelected$.subscribe((id: string) => {//chiama una funzione al subscribe che ha in ingresso il parametro id
       this.currentSection = id;
 
     });
   }
+
   getId(id: string) {
     this.id = id;
     this.headerService.setSelection("Game-Detail");

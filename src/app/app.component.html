@@ -3,7 +3,7 @@
 <navbar></navbar>
 <div [ngSwitch]="currentSection" class="main-content">
     <home *ngSwitchCase="'Home'"></home>
-    <list *ngSwitchCase="'List'"></list>
-    <game-detail *ngSwitchCase="'Game-Detail'" (selectedId)="getId($event)" [idSelected]="id"></game-detail>
+    <list (selectedId)="getId($event)" *ngSwitchCase="'List'"></list>
+    <game-detail *ngSwitchCase="'Game-Detail'" [idSelected]="id"></game-detail>
     <edit *ngSwitchCase="'Edit'"></edit>
 </div>

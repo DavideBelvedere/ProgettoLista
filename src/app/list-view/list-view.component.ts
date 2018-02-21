@@ -14,6 +14,7 @@ export class ListViewComponent implements OnInit {
 
   @Output()
   selectedId: EventEmitter<String> = new EventEmitter<String>();
+
   constructor(private listVideogame: ListVideogame) {
     this.games = listVideogame.getVideogameList();
   }
